@@ -1,0 +1,114 @@
+[
+    {
+        "nombre": "Manuel P\u00e9rez",
+        "fechanacimiento": "2003-09-30",
+        "edad": 22,
+        "email": "ManuelAlfonsop@hotmail.com",
+        "genero": "masculino",
+        "intereses": [
+            "musica",
+            "lectura"
+        ],
+        "comentarios": "Holis",
+        "sitioWeb": "https:\/\/www.w3schools.com",
+        "foto_perfil": "uploads\/infernalosrs_68e0d82cda65a.jpg"
+    },
+    {
+        "nombre": "Manuel P\u00e9rez",
+        "fechanacimiento": "2003-09-30",
+        "edad": 22,
+        "email": "ManuelAlfonsop@hotmail.com",
+        "genero": "masculino",
+        "intereses": [
+            "musica",
+            "lectura"
+        ],
+        "comentarios": "Holis",
+        "sitioWeb": "https:\/\/www.w3schools.com",
+        "foto_perfil": "uploads\/infernalosrs_68e0d82fa982f.jpg"
+    },
+    {
+        "nombre": "Manuel P\u00e9rez",
+        "fechanacimiento": "2003-09-30",
+        "edad": 22,
+        "email": "ManuelAlfonsop@hotmail.com",
+        "genero": "masculino",
+        "intereses": [
+            "musica",
+            "lectura"
+        ],
+        "comentarios": "Holis",
+        "sitioWeb": "https:\/\/www.w3schools.com",
+        "foto_perfil": "uploads\/infernalosrs_68e0d830094b8.jpg"
+    },
+    {
+        "nombre": "Manuel P\u00e9rez",
+        "fechanacimiento": "2003-09-30",
+        "edad": 22,
+        "email": "ManuelAlfonsop@hotmail.com",
+        "genero": "masculino",
+        "intereses": [
+            "musica",
+            "lectura"
+        ],
+        "comentarios": "Holis",
+        "sitioWeb": "https:\/\/www.w3schools.com",
+        "foto_perfil": "uploads\/infernalosrs_68e0d83064e93.jpg"
+    },
+    {
+        "nombre": "Manuel P\u00e9rez",
+        "fechanacimiento": "2003-09-30",
+        "edad": 22,
+        "email": "ManuelAlfonsop@hotmail.com",
+        "genero": "masculino",
+        "intereses": [
+            "musica",
+            "lectura"
+        ],
+        "comentarios": "Holis",
+        "sitioWeb": "https:\/\/www.w3schools.com",
+        "foto_perfil": "uploads\/infernalosrs_68e0d830e7f70.jpg"
+    },
+    {
+        "nombre": "Manuel P\u00e9rez",
+        "fechanacimiento": "2003-09-30",
+        "edad": 22,
+        "email": "ManuelAlfonsop@hotmail.com",
+        "genero": "masculino",
+        "intereses": [
+            "musica",
+            "lectura"
+        ],
+        "comentarios": "Holis",
+        "sitioWeb": "https:\/\/www.w3schools.com",
+        "foto_perfil": "uploads\/infernalosrs_68e0d831574f0.jpg"
+    },
+    {
+        "nombre": "Manuel P\u00e9rez",
+        "fechanacimiento": "2003-09-30",
+        "edad": 22,
+        "email": "ManuelAlfonsop@hotmail.com",
+        "genero": "masculino",
+        "intereses": [
+            "musica",
+            "lectura"
+        ],
+        "comentarios": "Holis",
+        "sitioWeb": "https:\/\/www.w3schools.com",
+        "foto_perfil": "uploads\/infernalosrs_68e0d831b298a.jpg"
+    },
+    {
+        "nombre": "Manuel P\u00e9rez",
+        "fechanacimiento": "2003-09-30",
+        "edad": 22,
+        "email": "ManuelAlfonsop@hotmail.com",
+        "genero": "masculino",
+        "intereses": [
+            "musica",
+            "lectura"
+        ],
+        "comentarios": "Holis",
+        "sitioWeb": "https:\/\/www.w3schools.com",
+        "foto_perfil": "uploads\/infernalosrs_68e0d8320ccdc.jpg"
+    }
+]
