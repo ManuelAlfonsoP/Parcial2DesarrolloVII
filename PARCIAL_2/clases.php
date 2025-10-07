@@ -25,34 +25,38 @@ class ProductoElectronico extends Producto implements Inventariable{
         
         public function __construct($datos) {
             parent::__construct($datos);
-        }
+            $this->garantiaMeses = $datos['garantiaMeses'];
+           
 
-        public function obtenerInformacionInventario(): string{
-            return $this->$garantiaMeses;
+        }
+        public function obtenerInformacionInventario(): string{   
+            return $this->garantiaMeses;
         }
 }
 
 class ProductoAlimento extends Producto implements Inventariable{
-    public string $fechaVencimiento = "";
+    public string $fechaVencimiento = '';
 
     public function __construct($datos) {
         parent::__construct($datos);
+        $this->fechaVencimiento = $datos['fechaVencimiento'];
     }
 
     public function obtenerInformacionInventario(): string{
-            return $this->$fechaVencimiento;
+            return $this->fechaVencimiento;
         }
 }
 
 class ProductoRopa extends Producto implements Inventariable{
-    public string $talla = "";
+    public string $talla = '';
 
     public function __construct($datos) {
         parent::__construct($datos);
+        $this->talla = $datos['talla'];
     }
 
     public function obtenerInformacionInventario(): string{
-            return $this->$talla;
+            return $this->talla;
         }
 }
 

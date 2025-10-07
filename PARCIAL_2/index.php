@@ -249,6 +249,11 @@ if ($operacion === 'ordenar') {
                                         Fecha Ingreso <?php echo ($campoOrden == 'fechaIngreso') ? ($tipoOrden == 'asc' ? '▲' : '▼') : ''; ?>
                                     </a>
                                 </th>
+                                <th>
+                                    <a href="?operacion=ordenar&ordenar=InformacionInventario&tipo=<?php echo ($campoOrden == 'InformacionInventario' && $tipoOrden == 'asc') ? 'desc' : 'asc'; ?>" class="text-white text-decoration-none">
+                                        Informacion de Inventario <?php echo ($campoOrden == 'fechaIngreso') ? ($tipoOrden == 'asc' ? '▲' : '▼') : ''; ?>
+                                    </a>
+                                </th>
                                 <th class="text-center">Acciones</th>
                             </tr>
                         </thead>
@@ -282,6 +287,7 @@ if ($operacion === 'ordenar') {
                                         <td><?php echo htmlspecialchars($item->stock); ?></td>
                                         <td><?php echo $categoriasLegibles[$item->categoria]; ?></td>
                                         <td><?php echo htmlspecialchars($item->fechaIngreso); ?></td>
+                                          <td><?php echo htmlspecialchars($item->obtenerInformacionInventario()); ?></td>
                                         <td class="text-center">
                                             <div class="btn-group btn-group-sm" role="group">
                                                 <a href="?operacion=editar&id=<?php echo $item->id; ?>" 
