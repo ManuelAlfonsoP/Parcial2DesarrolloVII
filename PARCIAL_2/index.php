@@ -4,7 +4,18 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require_once 'clases.php';
-
+$categoriasLegibles=
+[
+    'electronico'=>"Electronico",
+    'alimento'=>"Alimento",
+    'ropa'=>"Ropa"
+];
+$estadosLegibles=
+[
+    'disponible'=>"Disponible",
+    'agotado'=>"Agotado",
+    'por_recibir'=>"Por Recibir"
+];
 $gestor = new GestorInventario();
 $notificacion = '';
 $itemParaEditar = null;
@@ -102,18 +113,19 @@ if ($operacion === 'ordenar') {
                             <label class="form-label">Categoría</label>
                             <select class="form-select" name="categoria" id="selectorCategoria" required>
                                 <option value="">-- Seleccionar --</option>
-                                <option value="electronico" <?php echo ($itemParaEditar && $itemParaEditar->categoria == 'electronico') ? 'selected' : ''; ?>>Electrónico</option>
-                                <option value="alimento" <?php echo ($itemParaEditar && $itemParaEditar->categoria == 'alimento') ? 'selected' : ''; ?>>Alimento</option>
-                                <option value="ropa" <?php echo ($itemParaEditar && $itemParaEditar->categoria == 'ropa') ? 'selected' : ''; ?>>Ropa</option>
+                                <?php foreach($categoriasLegibles as $valor => $texto): ?>
+                                    <option value="<?php echo $valor; ?>" <?php echo $filtroEstado ==$valor ? 'selected':''; ?>><?php echo $texto; ?></option>
+                                    <?php endforeach; ?>
                             </select>
                         </div>
                         
                         <div class="col-md-4">
                             <label class="form-label">Estado</label>
                             <select class="form-select" name="estado" required>
-                                <option value="disponible" <?php echo ($itemParaEditar && $itemParaEditar->estado == 'disponible') ? 'selected' : ''; ?>>Disponible</option>
-                                <option value="agotado" <?php echo ($itemParaEditar && $itemParaEditar->estado == 'agotado') ? 'selected' : ''; ?>>Agotado</option>
-                                <option value="por_recibir" <?php echo ($itemParaEditar && $itemParaEditar->estado == 'por_recibir') ? 'selected' : ''; ?>>Por Recibir</option>
+                                <option value="">-- Seleccionar --</option>
+                                <?php foreach($estadosLegibles as $valor => $texto): ?>
+                                    <option value="<?php echo $valor; ?>" <?php echo $filtroEstado ==$valor ? 'selected':''; ?>><?php echo $texto; ?></option>
+                                    <?php endforeach; ?>
                             </select>
                         </div>
 
@@ -174,9 +186,10 @@ if ($operacion === 'ordenar') {
                         <label class="form-label">Filtrar por Estado:</label>
                         <select name="estado" class="form-select">
                             <option value="">Todos</option>
-                            <option value="disponible" <?php echo $filtroEstado == 'disponible' ? 'selected' : ''; ?>>Disponible</option>
-                            <option value="agotado" <?php echo $filtroEstado == 'agotado' ? 'selected' : ''; ?>>Agotado</option>
-                            <option value="por_recibir" <?php echo $filtroEstado == 'por_recibir' ? 'selected' : ''; ?>>Por Recibir</option>
+                                <option value="">-- Seleccionar --</option>
+                                <?php foreach($estadosLegibles as $valor => $texto): ?>
+                                    <option value="<?php echo $valor; ?>" <?php echo $filtroEstado ==$valor ? 'selected':''; ?>><?php echo $texto; ?></option>
+                                    <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="col-auto d-flex align-items-end">
@@ -263,11 +276,11 @@ if ($operacion === 'ordenar') {
                                             };
                                             ?>
                                             <span class="badge bg-<?php echo $badgeClass; ?>">
-                                                <?php echo htmlspecialchars($item->estado); ?>
+                                                <?php echo $estadosLegibles[$item->estado]; ?>
                                             </span>
                                         </td>
                                         <td><?php echo htmlspecialchars($item->stock); ?></td>
-                                        <td><?php echo htmlspecialchars($item->categoria); ?></td>
+                                        <td><?php echo $categoriasLegibles[$item->categoria]; ?></td>
                                         <td><?php echo htmlspecialchars($item->fechaIngreso); ?></td>
                                         <td class="text-center">
                                             <div class="btn-group btn-group-sm" role="group">
