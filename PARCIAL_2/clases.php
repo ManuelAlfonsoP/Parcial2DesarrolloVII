@@ -1,5 +1,6 @@
 <?php
 // Archivo: clases.php
+require 'Inventariable.php';
 
 class Producto {
     public $id;
@@ -18,6 +19,43 @@ class Producto {
         }
     }
 }
+
+class ProductoElectronico extends Producto implements Inventariable{
+        public $garantiaMeses;
+        
+        public function __construct($datos) {
+            parent::__construct($datos);
+        }
+
+        public function obtenerInformacionInventario(): string{
+            return $this->$garantiaMeses;
+        }
+}
+
+class ProductoAlimento extends Producto {
+    public $fechaVencimiento;
+
+    public function __construct($datos) {
+        parent::__construct($datos);
+    }
+
+    public function obtenerInformacionInventario(): string{
+            return $this->$fechaVencimiento;
+        }
+}
+
+class ProductoRopa extends Producto {
+    public $talla;
+
+    public function __construct($datos) {
+        parent::__construct($datos);
+    }
+
+    public function obtenerInformacionInventario(): string{
+            return $this->$talla;
+        }
+}
+
 
 class GestorInventario {
     private $items = [];
@@ -43,7 +81,20 @@ class GestorInventario {
         }
         
         foreach ($arrayDatos as $datos) {
-            $this->items[] = new Producto($datos);
+            switch ($datos["categoria"]){    
+            case "electronico":
+                $producto = new ProductoElectronico($datos);
+                $this->items[] = $producto;
+            break;
+            case "alimento":
+                $producto = new ProductoAlimento($datos);
+                $this->items[] =$producto;
+            break;
+            case "ropa":
+                $producto = new ProductoRopa($datos);
+                $this->items[] =$producto;
+            break;        
+    }
         }
     }
 
