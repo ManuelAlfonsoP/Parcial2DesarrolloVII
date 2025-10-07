@@ -21,7 +21,7 @@ class Producto {
 }
 
 class ProductoElectronico extends Producto implements Inventariable{
-        public $garantiaMeses;
+        public string $garantiaMeses = '';
         
         public function __construct($datos) {
             parent::__construct($datos);
@@ -32,8 +32,8 @@ class ProductoElectronico extends Producto implements Inventariable{
         }
 }
 
-class ProductoAlimento extends Producto {
-    public $fechaVencimiento;
+class ProductoAlimento extends Producto implements Inventariable{
+    public string $fechaVencimiento = "";
 
     public function __construct($datos) {
         parent::__construct($datos);
@@ -44,8 +44,8 @@ class ProductoAlimento extends Producto {
         }
 }
 
-class ProductoRopa extends Producto {
-    public $talla;
+class ProductoRopa extends Producto implements Inventariable{
+    public string $talla = "";
 
     public function __construct($datos) {
         parent::__construct($datos);
@@ -66,6 +66,8 @@ class GestorInventario {
             $this->cargarDesdeArchivo();
         }
         return $this->items;
+
+        
     }
 
     private function cargarDesdeArchivo() {
