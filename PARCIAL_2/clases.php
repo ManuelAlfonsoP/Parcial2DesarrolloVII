@@ -126,4 +126,63 @@ class GestorInventario {
         
         return max($ids);
     }
+    
+public function agregar($nuevoProducto) {
+        $nuevoProducto->id = $this->obtenerMaximoId() + 1;
+        $this->items[] = $nuevoProducto;
+        $this->persistirEnArchivo();
+    }
+
+    public function eliminar($idProducto) {
+        foreach ($this->items as $indice => $item) {
+            if ($item->id == $idProducto) {
+                unset($this->items[$indice]);
+                $this->items = array_values($this->items); // reindexar
+                $this->persistirEnArchivo();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function actualizar($productoActualizado) {
+        foreach ($this->items as $indice => $item) {
+            if ($item->id == $productoActualizado->id) {
+                $this->items[$indice] = $productoActualizado;
+                $this->persistirEnArchivo();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function cambiarEstado($idProducto, $estadoNuevo) {
+        foreach ($this->items as $item) {
+            if ($item->id == $idProducto) {
+                $item->estado = $estadoNuevo;
+                $this->persistirEnArchivo();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function filtrarPorEstado($estadoBuscado) {
+        if (empty($estadoBuscado)) {
+            return $this->items;
+        }
+
+        return array_filter($this->items, function($item) use ($estadoBuscado) {
+            return $item->estado == $estadoBuscado;
+        });
+    }
+
+    public function obtenerPorId($idBuscado) {
+        foreach ($this->items as $item) {
+            if ($item->id == $idBuscado) {
+                return $item;
+            }
+        }
+        return null;
+    }
 }
